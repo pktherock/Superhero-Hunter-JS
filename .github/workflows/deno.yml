@@ -1,0 +1,25 @@
+name: Update API Key
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update_api_key:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Update API Key
+        env:
+          BASE_URL: ${{ secrets.BASE_URL }}
+          PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+        run: |
+          # Replace placeholder in JavaScript file
+          sed -i "s/BASE_URL/${BASE_URL}/g" ./js/app.js
+          sed -i "s/PUBLIC_KEY/${PUBLIC_KEY}/g" ./js/app.js
+          sed -i "s/PRIVATE_KEY/${PRIVATE_KEY}/g" ./js/app.js
