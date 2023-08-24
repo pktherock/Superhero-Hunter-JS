@@ -20,6 +20,6 @@ jobs:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
         run: |
           # Replace placeholder in JavaScript file
-          sed -i "s/BASE_URL/${BASE_URL}/g" ./js/app.js
-          sed -i "s/PUBLIC_KEY/${PUBLIC_KEY}/g" ./js/app.js
-          sed -i "s/PRIVATE_KEY/${PRIVATE_KEY}/g" ./js/app.js
+          sed -i "s/BASE_URL/${BASE_URL}/g" js/app.js
+          sed -i "s/PUBLIC_KEY/${PUBLIC_KEY}/g" js/app.js
+          sed -i "s/PRIVATE_KEY/${PRIVATE_KEY}/g" js/app.js
