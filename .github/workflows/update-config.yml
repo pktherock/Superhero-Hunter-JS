@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set API Key in JSON
         env:
@@ -19,9 +19,9 @@ jobs:
           PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
         run: |
-          echo "{\"BASE_URL\":\"$BASE_URL\"}" > api-key.json
-          echo "{\"PUBLIC_KEY\":\"$PUBLIC_KEY\"}" > api-key.json
-          echo "{\"PRIVATE_KEY\":\"$PRIVATE_KEY\"}" > api-key.json
+          sed -i "s/BASE_URL/${BASE_URL}/g" api-key.json
+          sed -i "s/PUBLIC_KEY/${PUBLIC_KEY}/g" api-key.json
+          sed -i "s/PRIVATE_KEY/${PRIVATE_KEY}/g" api-key.json
 
       - name: Commit and Push Changes
         run: |
