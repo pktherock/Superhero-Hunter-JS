@@ -1,0 +1,32 @@
+name: Update Config
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update_config:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set API Key in JSON
+        env:
+          BASE_URL: ${{ secrets.BASE_URL }}
+          PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+        run: |
+          echo "{\"BASE_URL\":\"$BASE_URL\"}" > api-key.json
+          echo "{\"PUBLIC_KEY\":\"$PUBLIC_KEY\"}" > api-key.json
+          echo "{\"PRIVATE_KEY\":\"$PRIVATE_KEY\"}" > api-key.json
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add config.json
+          git commit -m "Update API key"
+          git push origin main
