@@ -1,1 +1,5 @@
-{"BASE_URL":"http://developer.marvel.com/v1/public","PUBLIC_KEY":"fecd62a0015413ebfe8388622dbfd6ac","PRIVATE_KEY":"2089fdf4c38b36198128768e74523e71"}
+{
+    "BASE_URL": "https://gateway.marvel.com/v1/public",
+    "PUBLIC_KEY": "fecd62a0015413ebfe8388622dbfd6ac",
+    "PRIVATE_KEY": "ab0a0d40b1ecef5d68c770f6b8554154"
+}
