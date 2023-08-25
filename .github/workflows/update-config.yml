@@ -19,6 +19,7 @@ jobs:
           PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
         run: |
+          echo "BASE_URL secret value: ${{ secrets.BASE_URL }}"
           # Read the original JSON file
           ORIGINAL_JSON=$(cat api-key.json)
 
