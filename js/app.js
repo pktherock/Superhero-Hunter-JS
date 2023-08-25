@@ -1,11 +1,32 @@
-// const BASE_URL = 'http://developer.marvel.com/v1/public';
-// const PUBLIC_KEY = 'fecd62a0015413ebfe8388622dbfd6ac';
-// const PRIVATE_KEY = '2089fdf4c38b36198128768e74523e71';
+let baseUrl = '';
+let publicKey = '';
+let privateKey = '';
 
-const BASE_URL = 'BASE_URL';
-const PUBLIC_KEY = 'PUBLIC_KEY';
-const PRIVATE_KEY = 'PRIVATE_KEY';
+async function loadApiKey() {
+  try {
+    const response = await fetch('api-key.json'); // Path to your JSON file
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error loading API key:', error);
+    return null;
+  }
+}
 
-console.log('Base Url', BASE_URL);
-console.log('Public Key', PUBLIC_KEY);
-console.log('Private Key', PRIVATE_KEY);
+async function main() {
+  const { BASE_URL, PUBLIC_KEY, PRIVATE_KEY } = await loadApiKey();
+  if (BASE_URL && PUBLIC_KEY && PRIVATE_KEY) {
+    // Use the API key in your code
+    console.log('Base URL:', BASE_URL);
+    console.log('Public Key:', PUBLIC_KEY);
+    console.log('Private Key:', PRIVATE_KEY);
+    baseUrl = BASE_URL;
+    publicKey = PUBLIC_KEY;
+    privateKey = PRIVATE_KEY;
+  } else {
+    // Handle error or fallback
+    console.error('API key not available.');
+  }
+}
+
+main();
