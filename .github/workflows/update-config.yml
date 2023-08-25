@@ -23,7 +23,13 @@ jobs:
           ORIGINAL_JSON=$(cat api-key.json)
 
           # Use JavaScript to modify the JSON object with secret values
-          NEW_JSON=$(node -e "const data = $ORIGINAL_JSON; data.BASE_URL = '$BASE_URL'; data.PUBLIC_KEY = '$PUBLIC_KEY'; data.PRIVATE_KEY = '$PRIVATE_KEY'; console.log(JSON.stringify(data));")
+          NEW_JSON=$(node -e "
+          const data = $ORIGINAL_JSON; 
+          data.BASE_URL = '$BASE_URL'; 
+          data.PUBLIC_KEY = '$PUBLIC_KEY'; 
+          data.PRIVATE_KEY = '$PRIVATE_KEY'; 
+          console.log(JSON.stringify(data));
+          ")
 
           # Write the updated JSON back to the file
           echo "$NEW_JSON" > api-key.json
