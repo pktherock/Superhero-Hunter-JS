@@ -27,6 +27,6 @@ jobs:
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
-          git add config.json
+          git add api-key.json
           git commit -m "Update API key"
           git push origin main
