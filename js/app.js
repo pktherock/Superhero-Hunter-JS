@@ -66,19 +66,151 @@ const ALL_AVAILABLE_PUBLIC_END_POINTS = [
   },
   {
     name: 'characters/{characterId}/comics',
-    info: 'Fetches lists of comics filtered by a character id',
+    info: 'Fetches lists of comics filtered by a character id.',
   },
   {
     name: 'characters/{characterId}/events',
-    info: 'Fetches lists of events filtered by a character id',
+    info: 'Fetches lists of events filtered by a character id.',
   },
   {
     name: 'characters/{characterId}/series',
-    info: 'Fetches lists of series filtered by a character id',
+    info: 'Fetches lists of series filtered by a character id.',
   },
   {
     name: 'characters/{characterId}/stories',
-    info: 'Fetches lists of stories filtered by a character id',
+    info: 'Fetches lists of stories filtered by a character id.',
+  },
+  {
+    name: 'comics',
+    info: 'Fetches lists of comics.',
+  },
+  {
+    name: 'comics/{comicId}',
+    info: 'Fetches a single comic by id.',
+  },
+  {
+    name: 'comics/{comicId}/characters',
+    info: 'Fetches lists of characters filtered by a comic id.',
+  },
+  {
+    name: 'comics/{comicId}/creators',
+    info: 'Fetches lists of creators filtered by a comic id.',
+  },
+  {
+    name: 'comics/{comicId}/events',
+    info: 'Fetches lists of events filtered by a comic id.',
+  },
+  {
+    name: 'comics/{comicId}/stories',
+    info: 'Fetches lists of stories filtered by a comic id.',
+  },
+  {
+    name: 'creators',
+    info: 'Fetches lists of creators.',
+  },
+  {
+    name: 'creators/{creatorId}',
+    info: 'Fetches a single creator by id.',
+  },
+  {
+    name: 'creators/{creatorId}/comics',
+    info: 'Fetches lists of comics filtered by a creator id.',
+  },
+  {
+    name: 'creators/{creatorId}/events',
+    info: 'Fetches lists of events filtered by a creator id.',
+  },
+  {
+    name: 'creators/{creatorId}/series',
+    info: 'Fetches lists of series filtered by a creator id.',
+  },
+  {
+    name: 'creators/{creatorId}/stories',
+    info: 'Fetches lists of stories filtered by a creator id.',
+  },
+  {
+    name: 'events',
+    info: 'Fetches lists of events.',
+  },
+  {
+    name: 'events/{eventId}',
+    info: 'Fetches a single event by id.',
+  },
+  {
+    name: 'events/{eventId}/characters',
+    info: 'Fetches lists of characters filtered by an event id.',
+  },
+  {
+    name: 'events/{eventId}/comics',
+    info: 'Fetches lists of comics filtered by an event id.',
+  },
+  {
+    name: 'events/{eventId}/creators',
+    info: 'Fetches lists of creators filtered by an event id.',
+  },
+  {
+    name: 'events/{eventId}/series',
+    info: 'Fetches lists of series filtered by an event id.',
+  },
+  {
+    name: 'events/{eventId}/stories',
+    info: 'Fetches lists of stories filtered by an event id.',
+  },
+  {
+    name: 'series',
+    info: 'Fetches lists of series.',
+  },
+  {
+    name: 'series/{seriesId}',
+    info: 'Fetches a single comic series by id.',
+  },
+  {
+    name: 'series/{seriesId}/characters',
+    info: 'Fetches lists of characters filtered by a series id.',
+  },
+  {
+    name: 'series/{seriesId}/comics',
+    info: 'Fetches lists of comics filtered by a series id.',
+  },
+  {
+    name: 'series/{seriesId}/creators',
+    info: 'Fetches lists of creators filtered by a series id.',
+  },
+  {
+    name: 'series/{seriesId}/events',
+    info: 'Fetches lists of events filtered by a series id.',
+  },
+  {
+    name: 'series/{seriesId}/stories',
+    info: 'Fetches lists of stories filtered by a series id',
+  },
+  {
+    name: 'stories',
+    info: 'Fetches lists of stories.',
+  },
+  {
+    name: 'stories/{storyId}',
+    info: 'Fetches a single comic story by id.',
+  },
+  {
+    name: 'stories/{storyId}/characters',
+    info: 'Fetches lists of characters filtered by a story id.',
+  },
+  {
+    name: 'stories/{storyId}/comics',
+    info: 'Fetches lists of comics filtered by a story id.',
+  },
+  {
+    name: 'stories/{storyId}/creators',
+    info: 'Fetches lists of creators filtered by a story id.',
+  },
+  {
+    name: 'stories/{storyId}/events',
+    info: 'Fetches lists of events filtered by a story id.',
+  },
+  {
+    name: 'stories/{storyId}/series',
+    info: 'Fetches lists of series filtered by a story id.',
   },
 ];
 
