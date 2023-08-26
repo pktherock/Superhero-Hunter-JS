@@ -4,9 +4,13 @@ const FetchDataBtn = document.getElementById('fetchDataBtn');
 const SearchInputText = document.getElementById('searchInputText');
 const SearchApiEndPointBtn = document.getElementById('searchApiEndPointBtn');
 
+// All API end points will be here
 const ApiEndPoints = document.getElementById('apiEndPoints');
 
+// AlertPlaceHolder which is one div for adding alert and removing as well
 const AlertPlaceholder = document.getElementById('liveAlertPlaceholder');
+
+// Function to append alert when response will come from server
 const appendAlert = (primaryMsg, message, type) => {
   const wrapper = document.createElement('div');
   wrapper.innerHTML = [
@@ -19,6 +23,7 @@ const appendAlert = (primaryMsg, message, type) => {
   AlertPlaceholder.append(wrapper);
 };
 
+// Below three variable will contains all the initial value for sending request
 let baseUrl = '';
 let publicKey = '';
 let privateKey = '';
@@ -35,7 +40,7 @@ async function loadApiKey() {
   }
 }
 
-// Function to load api key and set to local var to use while api call
+// Function to load api key and set to local var to use while api call (IIFE)
 (async () => {
   const { BASE_URL, PUBLIC_KEY, PRIVATE_KEY } = await loadApiKey();
   if (BASE_URL && PUBLIC_KEY && PRIVATE_KEY) {
@@ -49,6 +54,7 @@ async function loadApiKey() {
   }
 })();
 
+// all API end points array
 const ALL_AVAILABLE_PUBLIC_END_POINTS = [
   {
     name: 'characters',
@@ -76,10 +82,12 @@ const ALL_AVAILABLE_PUBLIC_END_POINTS = [
   },
 ];
 
+// At initial this function will show the api end points to the UI
 (() => {
   populateApiEndPointList(ALL_AVAILABLE_PUBLIC_END_POINTS);
 })();
 
+// Function to populate all api end points, and push it to DOM
 function populateApiEndPointList(endPointList) {
   endPointList.forEach((endPoint) => {
     const { name, info } = endPoint;
@@ -109,8 +117,9 @@ function populateApiEndPointList(endPointList) {
   });
 }
 
+// Function which will run on input,for sending api calls
 let currentEndPoint;
-const onEndPointTextChange = (e) => {
+const onEndPointTextInput = (e) => {
   const text = e.target.value;
   currentEndPoint = text;
   if (currentEndPoint.length) {
@@ -120,6 +129,7 @@ const onEndPointTextChange = (e) => {
   }
 };
 
+// Function which will run on click of fetchData Button
 const handleOnFetchDataBtnClick = async () => {
   // add disable property to input and button tag
   console.log('Yes data is coming...');
@@ -154,6 +164,7 @@ const handleOnFetchDataBtnClick = async () => {
   }
 };
 
+// Function which will fetch data from server
 const getDataFromServer = async (endPoint) => {
   try {
     const finalURL = `${baseUrl}/${endPoint}?ts=1&apikey=${publicKey}&hash=${privateKey}`;
@@ -166,6 +177,7 @@ const getDataFromServer = async (endPoint) => {
   }
 };
 
+// Function which will run on Change of Search Input
 let searchInputText;
 const onSearchInputTextChange = (e) => {
   const text = e.target.value;
@@ -177,6 +189,7 @@ const onSearchInputTextChange = (e) => {
   }
 };
 
+// Function which will run on click of SearchAPiEndPoint Button
 const handleOnSearchApiEndPointBtnClick = () => {
   if (searchInputText) {
     ApiEndPoints.innerHTML = null;
@@ -196,9 +209,9 @@ const handleOnSearchApiEndPointBtnClick = () => {
   }
 };
 
-EndPointText.addEventListener('input', onEndPointTextChange);
+// Below are the eventlistener on targeted tags
+EndPointText.addEventListener('input', onEndPointTextInput);
 FetchDataBtn.addEventListener('click', handleOnFetchDataBtnClick);
-
 SearchInputText.addEventListener('input', onSearchInputTextChange);
 SearchApiEndPointBtn.addEventListener(
   'click',
